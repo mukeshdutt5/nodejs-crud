@@ -1,0 +1,42 @@
+extends layout
+
+block title
+ title= title
+
+block content
+ 
+ div.container
+    div.page-header
+        h3= "Editing Profile of " + user.name
+
+    form.form-horizontal(method='POST' action='/edit')
+        div.form-group
+            label.col-sm-2 Name
+            div.col-sm-10
+                input.form-control(type='text', name='name' placeholder='Enter user name' value=user.name)
+        div.form-group
+            label.col-sm-2 Mobile
+            div.col-sm-10
+                input.form-control(type='text', name='mobile' placeholder='Enter mobile number' value=user.mobile)
+        div.form-group
+            label.col-sm-2 Email
+            div.col-sm-10
+                input.form-control(type='text', name='email' placeholder='Enter email address' value=user.email)
+        div.form-group
+            label.col-sm-2 Gener
+            div.col-sm-10
+                label.radio-inline
+                    input(type='radio', checked=true name='gender', value='M')
+                    |Male            
+                label.radio-inline
+                    input(type='radio', name='gender', value='F') 
+                    |Female
+        div.form-group
+            label.col-sm-2 Address
+            div.col-sm-10
+                textarea.form-control(cols=4, rows=5 placeholder='Enter user address' name='address')= user.address
+        div.form-group
+            div.col-sm-offset-2.col-sm-10
+                input.btn.btn-primary(type='submit' value='Submit')
+        div.pull-right
+            a(href='/index') Go Back
