@@ -18,11 +18,12 @@ app.set('view engine', 'pug')
 
 // Index source
 app.get('/', (req, res) => {
-    res.send("Hey welcome to node js application")
+
+    res.send("Hey welcome to node js application <a href='/index'>Get Users</a>")
 })
 
 // Index page routing is here
-app.get('/', (req, res) => {
+app.get('/Index', (req, res) => {
 
     var collection = db.collection("user")
     collection.find({}).sort({ _id: -1 }).toArray(function(err, docs) {
@@ -83,7 +84,7 @@ app.post('/add', (req, res) => {
     res.redirect('/index')
 })
 
-// When no resource will be available
+
 app.use('*', function(req, res) {
     res.render('404')
 })

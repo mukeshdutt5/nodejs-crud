@@ -4,27 +4,39 @@ block title
  title= title
 
 block content
- 
- form(method='POST' action='/add')
-    div
-        label Name
-        input(type='text', name='name' placeholder='Enter user name')
-    div
-        label Mobile
-        input(type='text', name='mobile' placeholder='Enter mobile number')
-    div
-        label Email
-        input(type='text', name='email' placeholder='Enter email address')
-    div
-        label Gener
-            label
-            input(type='radio', name='gender' value='M') 
-            | Male            
-            label
-            input(type='radio', name='gender' value='F') 
-            | Female
-    div
-        label Address
-        textarea(cols=4, rows=5 placeholder='Enter user address' name='address')
-    div
-        input(type='submit' value='Submit')
+
+ div.container
+    div.page-header
+     h3 Add New User Profille
+
+    form.login-form.form-horizontal(method='POST' action='/add')
+        div.form-group
+            label.col-sm-2 Name
+            div.col-sm-10
+                input(type='text', required=true, class='form-control' name='name' placeholder='Enter user name')
+        div.form-group
+            label.col-sm-2 Mobile
+            div.col-sm-10
+                input(type='text', required=true, name='mobile' class='form-control' placeholder='Enter mobile number')
+        div.form-group
+            label.col-sm-2 Email
+            div.col-sm-10
+                input(type='text', required=true, class='form-control' name='email' placeholder='Enter email address')
+        div.form-group
+            label.col-sm-2 Gener
+            div.col-sm-10
+                label.radio-inline
+                    input(type='radio', checked=true name='gender' value='M')
+                    | Male
+                label.radio-inline
+                    input(type='radio', name='gender' value='F')
+                    | Female
+        div.form-group
+            label.col-sm-2 Address
+            div.col-sm-10
+                textarea(cols=4, rows=5, required=true, class='form-control' class='col-sm-10' placeholder='Enter user address' name='address')
+        div.form-group
+            div.col-sm-offset-2.col-sm-10
+                input(type='submit' value='Submit' class='login btn btn-primary')
+        div.pull-right
+            a(href='/index') Go Back
