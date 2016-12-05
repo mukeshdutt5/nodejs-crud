@@ -1,0 +1,30 @@
+extends layout
+
+block title
+ title= title
+
+block content
+ 
+ form(method='POST' action='/add')
+    div
+        label Name
+        input(type='text', name='name' placeholder='Enter user name')
+    div
+        label Mobile
+        input(type='text', name='mobile' placeholder='Enter mobile number')
+    div
+        label Email
+        input(type='text', name='email' placeholder='Enter email address')
+    div
+        label Gener
+            label
+            input(type='radio', name='gender' value='M') 
+            | Male            
+            label
+            input(type='radio', name='gender' value='F') 
+            | Female
+    div
+        label Address
+        textarea(cols=4, rows=5 placeholder='Enter user address' name='address')
+    div
+        input(type='submit' value='Submit')
